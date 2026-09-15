@@ -1,0 +1,10 @@
+{
+  "name": "cheapskate",
+  "version": "0.1.0",
+  "description": "Stop your coding agent from burning your usage limit. Frugality rules plus a meter that shows where your tokens went.",
+  "author": { "name": "codegobrrrr9", "url": "https://github.com/codegobrrrr9" },
+  "homepage": "https://github.com/codegobrrrr9/cheapskate",
+  "repository": "https://github.com/codegobrrrr9/cheapskate",
+  "license": "MIT",
+  "keywords": ["tokens", "usage", "context", "cost", "frugal", "claude-code"]
+}

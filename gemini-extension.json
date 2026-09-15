@@ -1,0 +1,6 @@
+{
+  "name": "cheapskate",
+  "version": "0.1.0",
+  "description": "Stop your coding agent from burning your usage limit.",
+  "contextFileName": "AGENTS.md"
+}

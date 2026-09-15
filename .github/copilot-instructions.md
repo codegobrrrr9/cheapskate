@@ -1,0 +1,18 @@
+# cheapskate
+
+Token frugality rules from https://github.com/codegobrrrr9/cheapskate. The whole conversation is
+re-sent on every turn, so everything you read is paid for again on every call after it.
+
+1. Grep before read. Find the symbol first, then read the range around it.
+2. Read ranges, not files. More than 200 lines at once needs a reason. Never read a file over 1,000 lines whole.
+3. Never re-read what is in context. After an edit, re-read only the changed range.
+4. Batch independent calls in one turn. Every extra turn re-sends the entire context.
+5. Stop exploring once you can act. Small change: 3 reads before the first edit.
+6. Do not narrate. One line of intent, then the tool call. No text-only turns in the middle.
+7. Tail, do not cat. Never dump more than 100 lines of command output into context.
+8. Run the one test, not the suite. Whole suite once, at the end, if asked.
+9. Edit, do not rewrite. Write is for new files.
+10. Do what was asked. No unrequested refactors, tests or docs.
+11. Long session, fresh start. Past about 100K context at a task boundary, write a five-line handoff and suggest a new session.
+
+Read everything you need to be correct. Read nothing twice. Correctness over cost when the user says so.
