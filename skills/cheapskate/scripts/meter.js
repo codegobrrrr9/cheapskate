@@ -46,7 +46,10 @@ export function priceFor(model) {
 }
 
 export function projectSlug(dir) {
-  return resolve(dir).replace(/[^A-Za-z0-9]/g, '-');
+  // Claude Code names the project dir after the absolute path with every non-alphanumeric replaced.
+  // Do not resolve() a path that is already absolute on either platform (a Windows path on Linux is not "absolute" to Node).
+  const abs = /^(?:[A-Za-z]:[\\/]|\/)/.test(dir) ? dir : resolve(dir);
+  return abs.replace(/[^A-Za-z0-9]/g, '-');
 }
 export function projectsRoot() { return join(homedir(), '.claude', 'projects'); }
 
