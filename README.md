@@ -108,9 +108,26 @@ The meter's arithmetic is unit-tested against synthetic transcripts (11 tests: r
 de-duplication, per-model pricing with cache rates, every waste check, and the things that must not
 fire). The rules are measured with an agent in the loop:
 
-_Benchmark in progress. Same task on a real 60-file repo, same prompt, with and without the skill,
-scored by the agent's own usage report. Results land in [`benchmarks/`](benchmarks/run.md) as they
-are run._
+Same task on a real 60-file repo (a fresh copy of [seatbelt](https://github.com/codegobrrrr9/seatbelt)),
+same prompt: add a scanner check, plant an example, extend the test, make `npm test` pass. Scored by
+the agent's own usage report. A run only counts if the tests pass afterwards.
+
+| | baseline (no instructions) | cheapskate installed |
+|---|---|---|
+| Task completed | yes | yes |
+| Context processed | 789K | **702K** (−11%) |
+| Output tokens | 10K | **7K** (−26%) |
+| Cost | $0.43 | **$0.37** (−13%) |
+| Turns | 17 | **15** |
+| Time | 1.9 min | **1.7 min** |
+
+Claude Code, Sonnet 5, one run each. An honest read: this is a small task, and Sonnet 5 was
+already tidy on it. Neither run read a whole file or narrated, so the rules had little to cut and
+still saved 13%. The expensive patterns the meter catches (whole-file reads, re-reads, narration,
+200K-token contexts dragged across a long session) show up on long sessions, which is where the
+rules earn their keep. The session at the top of this README is what that looks like.
+
+Protocol, raw rows and how to reproduce with more runs: [`benchmarks/`](benchmarks/run.md).
 
 ## Install by agent
 
