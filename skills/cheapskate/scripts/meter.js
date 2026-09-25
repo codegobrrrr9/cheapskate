@@ -24,6 +24,7 @@ export const PRICES = {
   'claude-fable-5-1': [10, 12.5, 20, 0.25, 50],
   'claude-mythos-5-1': [10, 12.5, 20, 0.25, 50],
   'claude-fable-5': [10, 12.5, 20, 1, 50],
+  'claude-opus-5-5': [4, 5, 8, 0.2, 20],
   'claude-opus-5': [5, 6.25, 10, 0.5, 25],
   'claude-opus-4-8': [5, 6.25, 10, 0.5, 25],
   'claude-opus-4-7': [5, 6.25, 10, 0.5, 25],

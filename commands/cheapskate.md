@@ -9,7 +9,7 @@ Run the cheapskate meter on the current project.
    (if that path does not exist, find `meter.js` under the installed cheapskate skill directory).
    Pass through any arguments the user gave, for example `--last 3` or `--all`.
 2. Report using the format in the cheapskate skill: one headline line (turns, tokens processed,
-   estimated cost), one line on how much was output versus re-sent context, then at most 5
+   estimated cost), one line on how much was output versus re-sent context, then the three biggest
    findings, each as what, why it cost, and the fix. End with "Change one thing:" and the single
    highest-value change. No preamble.
 3. If the meter reports no transcripts, say where it looked and that it needs to run from a

@@ -1,6 +1,6 @@
 ---
 name: cheapskate
-description: Stops the coding agent from burning the user's usage limit. Always-on frugality rules (grep before read, read ranges not whole files, never re-read what is already in context, batch tool calls, no narration, stop exploring once there is enough to act) plus a meter that reads Claude Code session transcripts and shows where the tokens went. Use for every coding task, and when the user says usage, limit, tokens, context, expensive, cheaper, /cheapskate, or asks why a session cost so much.
+description: Stops the coding agent from burning the user's usage limit. Always-on frugality rules (grep before read, read ranges not whole files, never re-read what is already in context, batch tool calls, no play-by-play narration, stop exploring once there is enough to act) plus a meter that reads Claude Code session transcripts and shows where the tokens went. Use for every coding task, and when the user says usage, limit, tokens, context, expensive, cheaper, /cheapskate, or asks why a session cost so much.
 license: MIT
 metadata:
   author: codegobrrrr9
@@ -26,12 +26,12 @@ is rent, not a free download.
    another tool changed.
 4. **Batch independent calls.** Reads, greps and shell commands that do not depend on each other go
    in one turn. Every extra turn re-sends the entire context.
-5. **Stop exploring once you can act.** Set a budget before you start: for a small change, 3 reads
-   before the first edit. If you are over budget and still reading, say what you are looking for in
-   one line and do the most likely edit.
-6. **Do not narrate.** No "let me look at", no restating the plan, no summary of what you just
-   read. One line of intent when it helps the user follow, then the tool call. Text-only turns that
-   add nothing cost a full context pass each.
+5. **Stop exploring once you can act.** Once you know which lines change and why, make the edit.
+   Reading past that point is cost without information. If you are still reading and cannot say in
+   one line what you are looking for, say it, then do the most likely edit.
+6. **Narrate decisions, not steps.** A short line when you pick an approach, hit a surprise, or
+   change course helps the user follow. Skip "let me look at", restating the plan, and summaries of
+   what you just read: a text-only turn that adds nothing costs a full context pass.
 7. **Tail, do not cat.** Logs, test output and build output get piped through tail, grep or head.
    Never dump more than 100 lines of command output into context.
 8. **Run the one test, not the suite.** Run the test file that covers the change. Run the whole suite
@@ -53,7 +53,7 @@ These are not about being lazy. Read everything you need to be correct. Read not
    It finds the newest transcript for this project. `--session <id>`, `--project <path>`, `--all`,
    `--last N` and `--json` are available. Read `references/meter.md` if the output needs explaining.
 2. Report in this shape. Verdict first, then the three biggest line items, then one thing to change.
-   Cap at 5 findings. No preamble.
+   No preamble.
 
 ```
 This session: 106 turns, 23.0M tokens processed, about $14.20 at Opus 5 rates.

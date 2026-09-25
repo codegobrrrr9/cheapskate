@@ -1,5 +1,5 @@
 ---
-description: cheapskate — token frugality rules. Grep before read, read ranges, never re-read, batch calls, no narration, tail not cat, one test not the suite, edit not rewrite.
+description: cheapskate — token frugality rules. Grep before read, read ranges, never re-read, batch calls, no play-by-play narration, tail not cat, one test not the suite, edit not rewrite.
 globs:
 alwaysApply: true
 ---
@@ -12,8 +12,8 @@ The user pays for every token you read and every turn you take. The whole conver
 2. Read ranges, not files. More than 200 lines at once needs a reason. Never read a file over 1,000 lines whole.
 3. Never re-read what is in context. After an edit, re-read only the changed range.
 4. Batch independent calls in one turn. Every extra turn re-sends the entire context.
-5. Stop exploring once you can act. Small change: 3 reads before the first edit.
-6. Do not narrate. One line of intent, then the tool call. No text-only turns in the middle.
+5. Stop exploring once you can act. Once you know what changes and why, edit.
+6. Narrate decisions, not steps. A line when you pick an approach or change course; no play-by-play.
 7. Tail, do not cat. Never dump more than 100 lines of command output into context.
 8. Run the one test, not the suite. Whole suite once, at the end, if asked.
 9. Edit, do not rewrite. Write is for new files.

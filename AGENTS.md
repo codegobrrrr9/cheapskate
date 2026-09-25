@@ -40,8 +40,8 @@ after it. Follow these without being asked:
    Never read a file over 1,000 lines whole.
 3. **Never re-read what is in context.** Read once. After an edit, re-read only the changed range.
 4. **Batch independent calls** in one turn. Every extra turn re-sends the entire context.
-5. **Stop exploring once you can act.** Small change: 3 reads before the first edit.
-6. **Do not narrate.** One line of intent, then the tool call. No text-only turns in the middle.
+5. **Stop exploring once you can act.** Once you know what changes and why, edit. More reading is cost without information.
+6. **Narrate decisions, not steps.** A line when you pick an approach or change course; no play-by-play, no text-only turns that add nothing.
 7. **Tail, do not cat.** Never dump more than 100 lines of command output into context.
 8. **Run the one test, not the suite.** Whole suite once, at the end, if asked.
 9. **Edit, do not rewrite.** Write is for new files.
@@ -55,7 +55,7 @@ Read everything you need to be correct. Read nothing twice.
 
 Run `node <path-to>/meter.js` from the project root (it finds the newest transcript for this
 project; `--last N`, `--all`, `--session <id>`, `--json` are available). Then report: verdict first,
-the three biggest line items, one thing to change. Cap at 5 findings. No preamble.
+the three biggest line items, one thing to change. No preamble.
 
 ## Overrides
 
